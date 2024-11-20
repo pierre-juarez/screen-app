@@ -27,6 +27,7 @@ class OnboardingVC: UIViewController {
         ImageHelper.img3
     ]
     
+    
 }
 
 // MARK: View life cycle
@@ -45,6 +46,8 @@ extension OnboardingVC{
         btnLogin.isHidden = true
         
         pageControl.page = 0
+        
+        print("vc:", self.navigationController)
     }
 }
 
@@ -54,9 +57,9 @@ extension OnboardingVC{
     
     
     @IBAction func skipAction(_ sender: Any) {
-        print("skip...")
-        showItem(at: 2)
-        skipShow(false)
+        //showItem(at: 2)
+        //skipShow(false)
+        showPopup()
     }
     
     
@@ -83,6 +86,20 @@ extension OnboardingVC{
         let indexPath = IndexPath(item: index, section: 0)
         collectionPresentation.scrollToItem(at: indexPath, at: [.centeredHorizontally, .centeredVertically], animated: true)
     }
+    
+    func normalize(value: CGFloat) -> CGFloat {
+        let scale = UIScreen.main.bounds.width / 375.0
+        return value * scale
+    }
+    
+    func showPopup(){
+        let popupVC = PopupVC(nibName: "PopupVC", bundle: nil)
+        popupVC.delegate = self
+        popupVC.modalPresentationStyle = .overFullScreen
+        popupVC.modalTransitionStyle = .crossDissolve
+        self.present(popupVC, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: UICollectionView Delegate and Datasources
@@ -134,8 +151,29 @@ extension UIPageControl{
     }
 }
 
-// MARK: Functions custom
-func normalize(value: CGFloat) -> CGFloat {
-    let scale = UIScreen.main.bounds.width / 375.0
-    return value * scale
+// MARK: Implement protocol
+extension OnboardingVC: PopupVCDelegate{
+    func navigateToScreen(at screen: Int) {
+        
+        /**if let navigationController = self.navigationController{
+         navigationController.pushViewController(screen1, animated: true)
+         }**/
+        switch screen {
+        case 1:
+            let screen1 = Screen1VC(nibName: "Screen1VC", bundle: nil)
+            screen1.modalPresentationStyle = .overFullScreen
+            self.present(screen1, animated: true)
+        case 2:
+            let screen2 = Screen2VC(nibName: "Screen2VC", bundle: nil)
+            if let navigationController = self.navigationController{
+                navigationController.pushViewController(screen2, animated: true)
+            }
+        default:
+            print("Screen not found")
+        }
+        
+        
+    }
+    
+    
 }
