@@ -47,7 +47,6 @@ extension OnboardingVC{
         
         pageControl.page = 0
         
-        print("vc:", self.navigationController)
     }
 }
 
@@ -97,7 +96,7 @@ extension OnboardingVC{
         popupVC.delegate = self
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
-        self.present(popupVC, animated: true, completion: nil)
+        self.present(popupVC, animated: true)
     }
     
 }
@@ -153,27 +152,16 @@ extension UIPageControl{
 
 // MARK: Implement protocol
 extension OnboardingVC: PopupVCDelegate{
-    func navigateToScreen(at screen: Int) {
-        
-        /**if let navigationController = self.navigationController{
-         navigationController.pushViewController(screen1, animated: true)
-         }**/
-        switch screen {
-        case 1:
-            let screen1 = Screen1VC(nibName: "Screen1VC", bundle: nil)
-            screen1.modalPresentationStyle = .overFullScreen
-            self.present(screen1, animated: true)
-        case 2:
-            let screen2 = Screen2VC(nibName: "Screen2VC", bundle: nil)
-            if let navigationController = self.navigationController{
-                navigationController.pushViewController(screen2, animated: true)
-            }
-        default:
-            print("Screen not found")
+    func didTapButton1() {
+        let screen = Screen1VC(nibName: "Screen1VC", bundle: nil)
+        if let navigationController = self.navigationController{
+            navigationController.pushViewController(screen, animated: true)
         }
-        
-        
     }
-    
-    
+    func didTapButton2() {
+        let screen = Screen2VC(nibName: "Screen2VC", bundle: nil)
+        if let navigationController = self.navigationController{
+            navigationController.pushViewController(screen, animated: true)
+        }
+    }
 }

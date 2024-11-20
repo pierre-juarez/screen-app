@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: Definition protocols
 protocol PopupVCDelegate: AnyObject{
-    func navigateToScreen(at screen: Int)
+    func didTapButton1()
+    func didTapButton2()
 }
 
 
@@ -35,19 +36,28 @@ class PopupVC: UIViewController {
     
 // MARK: IBActions
     @IBAction func actionDoor1(_ sender: Any) {
-        dismiss(animated: true) {
-            self.delegate?.navigateToScreen(at: 1)
+        close {
+            self.delegate?.didTapButton1()
         }
     }
     
     @IBAction func actionDoor2(_ sender: Any) {
-        dismiss(animated: true) {
-            self.delegate?.navigateToScreen(at: 2)
+        close {
+            self.delegate?.didTapButton2()
         }
     }
     
     @IBAction func closePopup(_ sender: Any) {
-        self.dismiss(animated: true)
+        close()
     }
     
+
+    // MARK: Private functions
+    
+    func close(completion: (() -> Void)? = nil){
+        self.dismiss(animated: true) {
+            completion?()
+        }
+        
+    }
 }
