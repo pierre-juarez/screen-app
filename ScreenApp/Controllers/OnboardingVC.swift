@@ -15,7 +15,10 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionPresentation: UICollectionView!
-    
+    @IBOutlet weak var btnConfig: UIButton!
+    @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var btnResetBackground: UIButton!
+
     // Variables
     let titleArray = ["¿Cansado de navegar en el caos?", "Prioriza tus ideas", "Sumérgete en un mundo nuevo"]
     
@@ -40,6 +43,8 @@ extension OnboardingVC{
         
         btnSignUp.layer.cornerRadius = 12
         btnLogin.layer.cornerRadius = 12
+        btnConfig.layer.cornerRadius = 20
+        btnResetBackground.layer.cornerRadius = 20
         btnLogin.layer.borderWidth = 1
         btnLogin.layer.borderColor = UIColor(named: "primaryColor")?.cgColor
         btnSignUp.isHidden = true
@@ -58,13 +63,20 @@ extension OnboardingVC{
     @IBAction func skipAction(_ sender: Any) {
         //showItem(at: 2)
         //skipShow(false)
-        showPopup()
+        showPopupSkip()
     }
-    
     
     
     @IBAction func pageControlAction(_ sender: Any) {
         showItem(at: pageControl.currentPage)
+    }
+    
+    @IBAction func configAction(_ sender: Any){
+        showPopupConfig()
+    }
+    
+    @IBAction func resetAction(_ sender: Any){
+        resetBackground()
     }
     
     
@@ -91,13 +103,26 @@ extension OnboardingVC{
         return value * scale
     }
     
-    func showPopup(){
+    func showPopupSkip(){
         let popupVC = PopupVC(nibName: "PopupVC", bundle: nil)
         popupVC.delegate = self
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
         self.present(popupVC, animated: true)
     }
+    
+    func showPopupConfig(){
+        let popupColorVC = PopupColorVC(nibName: "PopupColorVC", bundle: nil)
+        popupColorVC.delegate = self
+        popupColorVC.modalPresentationStyle = .overFullScreen
+        popupColorVC.modalTransitionStyle = .crossDissolve
+        self.present(popupColorVC, animated: true)
+    }
+    
+    func resetBackground(){
+        viewBackground.backgroundColor = UIColor.systemBackground
+    }
+    
     
 }
 
@@ -150,7 +175,7 @@ extension UIPageControl{
     }
 }
 
-// MARK: Implement protocol
+// MARK: PopupVC protocol
 extension OnboardingVC: PopupVCDelegate{
     func didTapButton1() {
         let screen = Screen1VC(nibName: "Screen1VC", bundle: nil)
@@ -162,6 +187,15 @@ extension OnboardingVC: PopupVCDelegate{
         let screen = Screen2VC(nibName: "Screen2VC", bundle: nil)
         if let navigationController = self.navigationController{
             navigationController.pushViewController(screen, animated: true)
+        }
+    }
+}
+
+// MARK: TableCustomColor Protocol
+extension OnboardingVC: TableCustomColorDelegate{
+    func didTapChangeBackground(color: UIColor) {
+        UIView.animate(withDuration: 0.5) {
+            self.viewBackground.backgroundColor = color
         }
     }
 }

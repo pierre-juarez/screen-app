@@ -119,6 +119,38 @@
                                     <action selector="pageControlAction:" destination="tqJ-td-kFY" eventType="valueChanged" id="lCt-rI-bn6"/>
                                 </connections>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQM-Ut-g8D">
+                                <rect key="frame" x="20" y="123" width="40" height="40"/>
+                                <color key="backgroundColor" name="secondaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K63-bI-oVB"/>
+                                    <constraint firstAttribute="width" constant="40" id="U0R-2f-N4m"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="🛠️">
+                                    <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="configAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i1L-hQ-5MF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovm-6c-jRU">
+                                <rect key="frame" x="70" y="123" width="40" height="40"/>
+                                <color key="backgroundColor" name="primaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Phm-Za-NV5"/>
+                                    <constraint firstAttribute="width" constant="40" id="Pnu-gQ-kFw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="📋">
+                                    <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVO-NU-IWw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,10 +159,13 @@
                             <constraint firstItem="dwq-Z5-cnH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5q1-Ep-MWs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wgT-EG-gQg" secondAttribute="trailing" constant="20" id="6Tz-Jt-1zw"/>
                             <constraint firstItem="J2e-5z-Gvc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7np-2s-gi1"/>
+                            <constraint firstItem="ovm-6c-jRU" firstAttribute="leading" secondItem="LQM-Ut-g8D" secondAttribute="trailing" constant="10" id="D3h-GH-bNH"/>
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="bottomMargin" secondItem="ahm-7B-fmL" secondAttribute="bottom" id="GuA-60-aYZ"/>
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ip5-BG-ahb"/>
                             <constraint firstItem="dwq-Z5-cnH" firstAttribute="top" secondItem="isV-Bl-JMi" secondAttribute="bottom" constant="20" id="Ktl-b4-Wxn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J2e-5z-Gvc" secondAttribute="trailing" constant="20" id="NRs-uz-79t"/>
+                            <constraint firstItem="LQM-Ut-g8D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Umr-d0-hR6"/>
+                            <constraint firstItem="LQM-Ut-g8D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XqH-yU-PKf"/>
                             <constraint firstItem="wgT-EG-gQg" firstAttribute="width" secondItem="dwq-Z5-cnH" secondAttribute="width" id="YaR-wD-fn0"/>
                             <constraint firstItem="dwq-Z5-cnH" firstAttribute="bottom" secondItem="wgT-EG-gQg" secondAttribute="bottom" id="bSE-o1-CKx"/>
                             <constraint firstItem="wgT-EG-gQg" firstAttribute="leading" secondItem="dwq-Z5-cnH" secondAttribute="trailing" constant="20" id="dNQ-yu-S2a"/>
@@ -138,15 +173,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ahm-7B-fmL" secondAttribute="trailing" constant="20" id="kNv-Jp-ITL"/>
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="top" secondItem="J2e-5z-Gvc" secondAttribute="bottom" constant="20" id="nG6-QQ-1WA"/>
                             <constraint firstItem="ahm-7B-fmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nk8-Zf-2yM"/>
+                            <constraint firstItem="ovm-6c-jRU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="p6i-ce-VLM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gtz-z8-bEh"/>
                     <connections>
+                        <outlet property="btnConfig" destination="LQM-Ut-g8D" id="aep-tl-8no"/>
                         <outlet property="btnLogin" destination="wgT-EG-gQg" id="vHi-Ad-bZb"/>
+                        <outlet property="btnResetBackground" destination="ovm-6c-jRU" id="JDV-TB-XOg"/>
                         <outlet property="btnSignUp" destination="dwq-Z5-cnH" id="4Hx-Or-ZgP"/>
                         <outlet property="btnSkip" destination="J2e-5z-Gvc" id="EzI-Sw-aah"/>
                         <outlet property="collectionPresentation" destination="isV-Bl-JMi" id="LqQ-Xq-PHe"/>
                         <outlet property="pageControl" destination="ahm-7B-fmL" id="Wqh-P2-dfu"/>
+                        <outlet property="viewBackground" destination="8bC-Xf-vdC" id="XfA-l8-gGs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
