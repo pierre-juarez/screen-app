@@ -16,7 +16,6 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionPresentation: UICollectionView!
     @IBOutlet weak var btnConfig: UIButton!
-    @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var btnResetBackground: UIButton!
 
     // Variables
@@ -120,7 +119,7 @@ extension OnboardingVC{
     }
     
     func resetBackground(){
-        viewBackground.backgroundColor = UIColor.systemBackground
+        view.backgroundColor = UIColor.systemBackground
     }
     
     
@@ -193,9 +192,9 @@ extension OnboardingVC: PopupVCDelegate{
 
 // MARK: TableCustomColor Protocol
 extension OnboardingVC: TableCustomColorDelegate{
-    func didTapChangeBackground(color: UIColor) {
+    func didtapSelectedColor(color: UIColor) {
         UIView.animate(withDuration: 0.5) {
-            self.viewBackground.backgroundColor = color
+            self.view.backgroundColor = color
         }
     }
 }

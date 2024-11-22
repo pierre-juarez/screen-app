@@ -185,13 +185,27 @@
                         <outlet property="btnSkip" destination="J2e-5z-Gvc" id="EzI-Sw-aah"/>
                         <outlet property="collectionPresentation" destination="isV-Bl-JMi" id="LqQ-Xq-PHe"/>
                         <outlet property="pageControl" destination="ahm-7B-fmL" id="Wqh-P2-dfu"/>
-                        <outlet property="viewBackground" destination="8bC-Xf-vdC" id="XfA-l8-gGs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tqJ-td-kFY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="918.32061068702285" y="-27.464788732394368"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="85N-be-DWH">
+            <objects>
+                <viewController id="MdF-ig-KyB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8id-XX-ZqA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kdJ-Ce-n5h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HrA-1c-79J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="-24"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aeS-YO-hv5">

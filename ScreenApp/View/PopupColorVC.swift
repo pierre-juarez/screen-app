@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: Protocol
 protocol TableCustomColorDelegate: AnyObject{
-    func didTapChangeBackground(color: UIColor)
+    func didtapSelectedColor(color: UIColor)
 }
 
 class PopupColorVC: UIViewController {
@@ -46,13 +46,13 @@ extension PopupColorVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayColors.count
+        return Colors.arrayColors.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableColorCell", for: indexPath) as! TableColorCell
-        let optionSelected = arrayColors[indexPath.row]
+        let optionSelected = Colors.arrayColors[indexPath.row]
         cell.configure(cellColor: optionSelected.color, nameColor: optionSelected.name)
         return cell
     }
@@ -62,8 +62,8 @@ extension PopupColorVC: UITableViewDataSource{
 
 extension PopupColorVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let optionSelected = arrayColors[indexPath.row]
-        self.delegate?.didTapChangeBackground(color: optionSelected.color)
+        let optionSelected = Colors.arrayColors[indexPath.row]
+        self.delegate?.didtapSelectedColor(color: optionSelected.color)
         self.dismiss(animated: true)
     }
 }
