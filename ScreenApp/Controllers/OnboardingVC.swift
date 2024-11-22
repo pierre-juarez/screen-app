@@ -9,6 +9,9 @@ import UIKit
 
 class OnboardingVC: UIViewController {
     
+    // Variables
+    private let modelOnboarding = DataOnboardingModel()
+    
     // IBoutlets
     @IBOutlet weak var btnSkip: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
@@ -17,18 +20,6 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var collectionPresentation: UICollectionView!
     @IBOutlet weak var btnConfig: UIButton!
     @IBOutlet weak var btnResetBackground: UIButton!
-
-    // Variables
-    let titleArray = ["¿Cansado de navegar en el caos?", "Prioriza tus ideas", "Sumérgete en un mundo nuevo"]
-    
-    let subtitleArray = ["Ordena tus ideas, y apunta al éxito", "Y ocupa más tiempo en ti, y en los tuyos", "¿Estás preparado para iniciar el camino?"]
-    
-    let imageArray = [
-        ImageHelper.img1,
-        ImageHelper.img2,
-        ImageHelper.img3
-    ]
-    
     
 }
 
@@ -128,20 +119,20 @@ extension OnboardingVC{
 // MARK: UICollectionView Delegate and Datasources
 extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titleArray.count
+        return modelOnboarding.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
         
-        cell.widthCustomImage.constant = normalize(value: 260)
-        cell.imgCustom.image = imageArray[indexPath.row]
-        cell.lblTitle.text = titleArray[indexPath.row]
-        cell.lblSubtitle.text = subtitleArray[indexPath.row]
+        if let item = modelOnboarding.getItem(at: indexPath.row){
+            cell.widthCustomImage.constant = normalize(value: 260)
+            cell.imgCustom.image = item.img
+            cell.lblTitle.text = item.title
+            cell.lblSubtitle.text = item.subtitle
+        }
         
         return cell
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
