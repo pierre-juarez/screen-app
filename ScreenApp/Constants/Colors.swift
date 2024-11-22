@@ -31,7 +31,26 @@ class Colors{
 
     
     // TODO: Change por diccionario y porqué
+    static let dicColors = [
+        "Rojo" : UIColor.red,
+        "Verde": UIColor.green,
+        "Blue": UIColor.blue,
+        "Naranja": UIColor.orange,
+        "Pink": UIColor.systemPink
+    ]
     // TODO: Change por struct - ventajas y desventajs (only you)
+    
+    struct ColorItem {
+        let name: String
+        let color: UIColor
+    }
+    
+    static let arrayStruct = [
+        ColorItem(name: "Cyan", color: UIColor.cyan),
+        ColorItem(name: "Marrón", color: UIColor.brown),
+        ColorItem(name: "Magenta", color: UIColor.magenta),
+        ColorItem(name: "Purpura", color: UIColor.purple)
+    ]
 
 }
 
