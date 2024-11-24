@@ -20,6 +20,7 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var collectionPresentation: UICollectionView!
     @IBOutlet weak var btnConfig: UIButton!
     @IBOutlet weak var btnResetBackground: UIButton!
+    @IBOutlet weak var btnShowModalScreen: UIButton!
     
 }
 
@@ -33,6 +34,7 @@ extension OnboardingVC{
         
         btnSignUp.layer.cornerRadius = 12
         btnLogin.layer.cornerRadius = 12
+        btnShowModalScreen.layer.cornerRadius = 12
         btnConfig.layer.cornerRadius = 20
         btnResetBackground.layer.cornerRadius = 20
         btnLogin.layer.borderWidth = 1
@@ -51,9 +53,8 @@ extension OnboardingVC{
     
     
     @IBAction func skipAction(_ sender: Any) {
-        //showItem(at: 2)
-        //skipShow(false)
-        showPopupSkip()
+        showItem(at: 2)
+        skipShow(false)
     }
     
     
@@ -67,6 +68,10 @@ extension OnboardingVC{
     
     @IBAction func resetAction(_ sender: Any){
         resetBackground()
+    }
+    
+    @IBAction func showModalScreenAction(_ sender: Any){
+        showPopupSkip()
     }
     
     
@@ -86,11 +91,6 @@ extension OnboardingVC{
         pageControl.page = index
         let indexPath = IndexPath(item: index, section: 0)
         collectionPresentation.scrollToItem(at: indexPath, at: [.centeredHorizontally, .centeredVertically], animated: true)
-    }
-    
-    func normalize(value: CGFloat) -> CGFloat {
-        let scale = UIScreen.main.bounds.width / 375.0
-        return value * scale
     }
     
     func showPopupSkip(){
@@ -126,10 +126,7 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
         
         if let item = modelOnboarding.getItem(at: indexPath.row){
-            cell.widthCustomImage.constant = normalize(value: 260)
-            cell.imgCustom.image = item.img
-            cell.lblTitle.text = item.title
-            cell.lblSubtitle.text = item.subtitle
+            cell.configure(item: item)
         }
         
         return cell

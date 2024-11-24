@@ -30,7 +30,6 @@ class Colors{
    ]
 
     
-    // TODO: Change por diccionario y porqué
     static let dicColors = [
         "Rojo" : UIColor.red,
         "Verde": UIColor.green,
@@ -38,7 +37,6 @@ class Colors{
         "Naranja": UIColor.orange,
         "Pink": UIColor.systemPink
     ]
-    // TODO: Change por struct - ventajas y desventajs (only you)
     
     struct ColorItem {
         let name: String

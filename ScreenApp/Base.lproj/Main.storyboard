@@ -151,6 +151,22 @@
                                     <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVO-NU-IWw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2D-c5-o85">
+                                <rect key="frame" x="120" y="123" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.054901960780000002" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9s4-wv-SEk"/>
+                                    <constraint firstAttribute="width" constant="40" id="tXp-gY-mdw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="👁️">
+                                    <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showModalScreenAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VU-d7-srF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,6 +179,7 @@
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="bottomMargin" secondItem="ahm-7B-fmL" secondAttribute="bottom" id="GuA-60-aYZ"/>
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ip5-BG-ahb"/>
                             <constraint firstItem="dwq-Z5-cnH" firstAttribute="top" secondItem="isV-Bl-JMi" secondAttribute="bottom" constant="20" id="Ktl-b4-Wxn"/>
+                            <constraint firstItem="Y2D-c5-o85" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="NDN-Mw-Vdm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J2e-5z-Gvc" secondAttribute="trailing" constant="20" id="NRs-uz-79t"/>
                             <constraint firstItem="LQM-Ut-g8D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Umr-d0-hR6"/>
                             <constraint firstItem="LQM-Ut-g8D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XqH-yU-PKf"/>
@@ -174,6 +191,7 @@
                             <constraint firstItem="isV-Bl-JMi" firstAttribute="top" secondItem="J2e-5z-Gvc" secondAttribute="bottom" constant="20" id="nG6-QQ-1WA"/>
                             <constraint firstItem="ahm-7B-fmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nk8-Zf-2yM"/>
                             <constraint firstItem="ovm-6c-jRU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="p6i-ce-VLM"/>
+                            <constraint firstItem="Y2D-c5-o85" firstAttribute="leading" secondItem="ovm-6c-jRU" secondAttribute="trailing" constant="10" id="pqa-nG-cfo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gtz-z8-bEh"/>
@@ -181,6 +199,7 @@
                         <outlet property="btnConfig" destination="LQM-Ut-g8D" id="aep-tl-8no"/>
                         <outlet property="btnLogin" destination="wgT-EG-gQg" id="vHi-Ad-bZb"/>
                         <outlet property="btnResetBackground" destination="ovm-6c-jRU" id="JDV-TB-XOg"/>
+                        <outlet property="btnShowModalScreen" destination="Y2D-c5-o85" id="3aJ-4i-zBM"/>
                         <outlet property="btnSignUp" destination="dwq-Z5-cnH" id="4Hx-Or-ZgP"/>
                         <outlet property="btnSkip" destination="J2e-5z-Gvc" id="EzI-Sw-aah"/>
                         <outlet property="collectionPresentation" destination="isV-Bl-JMi" id="LqQ-Xq-PHe"/>

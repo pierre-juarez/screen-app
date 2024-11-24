@@ -18,17 +18,17 @@ class DataOnboardingModel{
         OnboardingItem(
             title: "¿Cansado de navegar en el caosssss?",
             subtitle: "Ordena tus ideas, y apunta al éxito",
-            img: ImageHelper.img1!
+            img: ImageHelper.img1 ?? UIImage()
         ),
         OnboardingItem(
             title: "Prioriza tus ideas",
             subtitle: "Y ocupa más tiempo en ti, y en los tuyos",
-            img: ImageHelper.img2!
+            img: ImageHelper.img2 ?? UIImage()
         ),
         OnboardingItem(
             title: "Sumérgete en un mundo nuevo",
             subtitle: "¿Estás preparado para iniciar el camino?",
-            img: ImageHelper.img3!
+            img: ImageHelper.img3 ?? UIImage()
         )
     ]
     
